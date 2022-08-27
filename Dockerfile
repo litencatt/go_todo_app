@@ -24,4 +24,5 @@ CMD ["./app"]
 FROM golang:1.19.0 as dev
 WORKDIR /app
 RUN go install github.com/cosmtrek/air@latest
+RUN go install github.com/k0kubun/sqldef/cmd/mysqldef@latest
 CMD ["air"]
