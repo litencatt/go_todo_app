@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/go-chi/chi/v5 v5.0.7
 	github.com/go-playground/validator/v10 v10.11.0
+	github.com/go-sql-driver/mysql v1.6.0
 	github.com/google/go-cmp v0.5.8
 	github.com/jmoiron/sqlx v1.3.5
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
