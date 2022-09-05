@@ -36,7 +36,7 @@ func TestKVS_Load(t *testing.T) {
 	t.Run("ok", func(t *testing.T) {
 		t.Parallel()
 
-		key := "TestKVS_Save"
+		key := "TestKVS_Load_ok"
 		uid := entity.UserID(1234)
 		ctx := context.Background()
 		cli.Set(ctx, key, int64(uid), 30*time.Minute)
