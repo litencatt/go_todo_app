@@ -64,5 +64,12 @@ func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), erro
 	}
 	mux.Post("/register", ru.ServeHTTP)
 
+	// サブルーターを定義しミドルウェアを適用する
+	mux.Route("/tasks", func(r chi.Router) {
+		r.Use(handler.AuthMiddlewar(jwter))
+		r.Post("/", at.ServeHTTP)
+		r.Get("/", lt.ServeHTTP)
+	})
+
 	return mux, cleanup, nil
 }
