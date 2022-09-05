@@ -12,10 +12,11 @@ import (
 func OpenRedisForTest(t *testing.T) *redis.Client {
 	t.Helper()
 
-	// テスト実行はdocker内で行うため
+	// テスト実行はdocker内で行うためhost名はコンテナ名を指定
 	host := "todo-redis"
 	port := 6379
 	if _, defined := os.LookupEnv("CI"); defined {
+		host = "127.0.0.1"
 		port = 6379
 	}
 	client := redis.NewClient(&redis.Options{
